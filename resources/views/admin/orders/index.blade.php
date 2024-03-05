@@ -103,6 +103,7 @@
                             <a><i class="fa fa-trash"></i></a>
                         </button>
                         {!! Form::close() !!}
+                        <button class="np-btn-open-modal" data-order-id="{{ $order->id }}">НП</button>
                     </td>
                 </tr>
                 @endforeach
@@ -111,7 +112,14 @@
             </table>
         </section>
         </div>
+
     </div>
+    <div id="np-modal" class="np-modal">
+        <div class="np-modal-content">
+            <!-- Здесь будет контент модального окна -->
+        </div>
+    </div>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -143,6 +151,24 @@
                 }
             });
         });
+    });
+
+    const openModalButtons = document.querySelectorAll('.np-btn-open-modal');
+    const modal = document.getElementById('np-modal');
+
+    // Добавляй обработчики событий для кнопок
+    openModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Открывай модальное окно
+            modal.style.display = 'block';
+        });
+    });
+
+    // Добавь обработчик события для закрытия модального окна
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     });
 </script>
 @endsection

@@ -68,6 +68,8 @@ return [
     'oversize_hoodie' => 'Оверсайз худі',
     'oversize_tshirt' => 'Оверсайз футболки',
     'rukav' => 'Рукав міряється від горловини',
+    'version' => 'Версія',
+    'profile' => 'Профиль',
 
 
 

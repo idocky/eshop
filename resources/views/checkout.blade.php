@@ -226,6 +226,11 @@
                 toggleTownList();
             });
 
+            $('#department').click(function(event) {
+                event.stopPropagation(); // Предотвращаем закрытие списка при клике на поле ввода
+                toggleDepartmentList();
+            });
+
             // Закрыть список городов при клике вне поля ввода или списка
             $(document).click(function(event) {
                 if (!$(event.target).closest('#town').length && !$(event.target).closest('#town-list').length) {

@@ -31,7 +31,7 @@ class QueryFilter
             }
         }
 
-        return $this->builder;
+        return $this->builder->orderBy('id', 'desc');
     }
 
     protected function paramToArray($param)

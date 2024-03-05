@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CreationOrderEmailJob;
 use App\Models\Order;
 use App\Services\NovaPochtaService;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class OrdersController extends Controller
 
 
         //Отправка почтового уведомления о заказе
-        Mail::to($order->email)->send(new OrderPlaced($order));
+        $this->dispatch(new CreationOrderEmailJob($order));
 
         //Отправка сообщения в тг о заказе
         $chatId = '610366027';

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('/public/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('/public/slick/slick-theme.css')}}">
     <link rel="icon" href="/public/img/logo-icon.png" type="image/png">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="shortcut icon" href="/public/img/logo-icon.png" type="image/x-icon">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,29 +29,87 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">@lang('main.nav_main')</a>
+                    <div class="row">
+                        <div class="col-auto">
+                            <a class="nav-link active" aria-current="page" href="/">
+                                <i class="fa fa-home d-md-none fa-sm" aria-hidden="true" style="width:20px"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link active" aria-current="page" href="/">@lang('main.nav_main')</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/collection') }}">@lang('main.nav_collection')</a>
+                    <div class="row">
+                        <div class="col-auto">
+                            <a class="nav-link" href="{{ url('/collection') }}">
+                                <i class="fa-solid fa-shirt d-md-none fa-sm" style="width:20px"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link" href="{{ url('/collection') }}">@lang('main.nav_collection')</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item d-md-none">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a class="nav-link" href="{{ url('/cart') }}">
+                                <i class="fa-solid fa-cart-shopping d-md-none fa-sm" style="width:20px"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link" href="{{ url('/cart') }}">@lang('main.cart')</a>
+                        </div>
+                    </div>
+                </li>
+                @guest
+                    <li class="nav-item d-md-none">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a class="nav-link" href="{{ url('login') }}">
+                                    <i class="fa-solid fa-right-to-bracket d-md-none fa-sm" style="width:20px"></i>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="nav-link" href="{{ url('login') }}">@lang('main.log')</a>
+                            </div>
+                        </div>
+                    </li>
+                @endguest
+
+                @auth
+                    <li class="nav-item d-md-none">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a class="nav-link" href="{{ url('profile') }}">
+                                    <i class="fa-solid fa-user d-md-none fa-sm" style="width:20px"></i>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="nav-link" href="{{ url('profile') }}">@lang('main.profile')</a>
+                            </div>
+                        </div>
+                    </li>
+                @endauth
+                <li class="nav-item d-md-none">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a class="nav-link" aria-current="page" href="{{ route('locale', __('main.set_locale') ) }}">
+                                <i class="fa-solid fa-earth-europe d-md-none fa-sm"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="nav-link" aria-current="page" href="{{ route('locale', __('main.set_locale') ) }}">
+                                &ensp;@lang('main.set_locale') @lang('main.version')
+                            </a>
+                        </div>
+                    </div>
                 </li>
             </ul>
-            <div class="nav-mobile">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url('/cart') }}">Корзина</a>
-                    </li>
-                    @guest
-                        <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Логин</a></li>
-                    @endguest
 
-                    @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ url('profile') }}">Профиль</a></li>
-                    @endauth
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('locale', __('main.set_locale') ) }}">@lang('main.set_locale') Версия</a>
-                    </li>
-                </ul>
-            </div>
+        </div>
 
             <div class=" nav-pc">
                 <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
@@ -102,7 +161,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
+<script src="https://kit.fontawesome.com/56d1bbb0b1.js" crossorigin="anonymous"></script>
     @yield('content')
 
 <footer>
