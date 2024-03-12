@@ -7,7 +7,7 @@ return [
     'nav_main' => 'Главная',
     'nav_collection' => 'Колекции',
     'nav_clothes' => 'Одежда',
-    'collection' => 'Колекция',
+    'collection' => 'Коллекция',
     'footer_protect' => 'Безопасные покупки',
     'footer_info' => 'Информация',
     'footer_account' => 'Учетная запись',

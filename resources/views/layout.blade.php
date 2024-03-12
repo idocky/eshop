@@ -20,6 +20,16 @@
     <title>@yield('title')</title>
 </head>
 <body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16459019663"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    //gtag('config', 'AW-16459019663',{ 'debug_mode': true });
+    gtag('config', 'AW-16459019663');
+</script>
 <nav class="navbar fornav navbar-expand-lg fixed-top bg-body-tertiary">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="/public/img/logo.png" width="48px"></a>
@@ -226,15 +236,7 @@
     </script>
 
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQYYVRYR0M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-EQYYVRYR0M');
-    </script>
 
 </body>
 </html>

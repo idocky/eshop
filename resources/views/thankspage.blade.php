@@ -1,10 +1,35 @@
 @extends('layout')
 
 @section('title')
-
+    Anion Clothes
 @endsection
 
 @section('content')
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16459019663"></script>
+    <script>
+        <!-- Google tag (gtag.js) -->
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.dataLayer.push({'event': ''});
+        gtag("event", "purchase", {
+            transaction_id: "T_{{ $order->id }}",
+            value: {{ $order->total_price }},
+            currency: "UAH",
+            items: [
+                    @foreach($order->items as $item)
+                {
+                    item_id: "SKU_{{ $item->id }}",
+                    item_name: "{{ $item->title_ru }}",
+                    discount: {{ $item->discount }},
+                    item_category: "{{ $item->category->title_ru }}",
+                    price: {{ $item->price }},
+                    quantity: {{ $item->pivot->quantity }}
+                },
+                @endforeach
+            ]
+        });
+    </script>
+
     <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="card">
             <div class="card-header">
@@ -64,6 +89,8 @@
             <div class="card-footer d-flex justify-content-end">
                 @lang('main.total'): {{ $order->total_price }} грн
             </div>
+
+
 
         </div>
     </div>

@@ -148,11 +148,38 @@
                 </div>
                 <input type="hidden" name="size" id="hidden_size" value="0">
                 <div class="col-auto mt-2">
-                    <input type="submit" value="@lang('main.add_to_bag')"
+                    <input type="submit" id="add-to-cart" value="@lang('main.add_to_bag')"
                            class="product-page__add-to-cart btn btn-primary add-to-cart">
                 </div>
             </div>
             {!! Form::close() !!}
+
+            <script>
+                $(document).ready(function () {
+                    $('.add-to-cart').on("click", function () {
+                        console.log('dfdfd');
+                        var input = $('#quantity');
+                        var currentValue = parseInt(input.val(), 10) || 0;
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag("event", "add_to_cart", {
+                            value: {{ $item->price }},
+                            currency: "UAH",
+                            items: [
+                                {
+                                    item_id: "SKU_{{ $item->id }}",
+                                    item_name: "{{ $item->title_ru }}",
+                                    discount: {{ $item->discount }},
+                                    item_category: "{{ $item->category->title_ru }}",
+                                    quantity: currentValue
+                                }
+                            ]
+                        });
+                    });
+                });
+
+
+            </script>
 
         </div>
 
@@ -404,7 +431,6 @@
         }
 
         const sizeOptions = document.querySelectorAll('.size-option');
-        const addToCartButton = document.querySelector('.add-to-cart');
 
 
         sizeOptions.forEach((option) => {
