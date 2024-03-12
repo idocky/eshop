@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreItemRequest;
+use App\Http\Requests\UpdateItemRequest;
 use App\Models\admin\Category;
 use App\Models\admin\Collection;
 use App\Models\admin\Color;
@@ -42,15 +44,8 @@ class ItemsController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreItemRequest $request)
     {
-        $this->validate($request, [
-            'title_ua' => 'required',
-            'title_ru' => 'required',
-            'price' => 'required',
-            'photo' => 'nullable|image'
-        ]);
-
         $item = Item::add($request->all());
         $item->uploadPhoto($request->file("photo"));
         $item->setCategory($request->get("categories_id"));
@@ -83,14 +78,8 @@ class ItemsController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateItemRequest $request, $id)
     {
-        $this->validate($request, [
-            'title_ua' => 'required',
-            'title_ru' => 'required',
-            'price' => 'required',
-            'photo' => 'nullable|image'
-        ]);
 
         $item = Item::find($id);
         $item->edit($request->all());

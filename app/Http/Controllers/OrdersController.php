@@ -31,7 +31,8 @@ class OrdersController extends Controller
 
 
         //Отправка почтового уведомления о заказе
-        $this->dispatch(new CreationOrderEmailJob($order));
+        //$this->dispatch(new CreationOrderEmailJob($order));
+        Mail::to($order->email)->send(new OrderPlaced($order));
 
         //Отправка сообщения в тг о заказе
         $chatId = '610366027';

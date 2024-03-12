@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\admin\Category;
 use Illuminate\Http\Request;
 
@@ -25,11 +27,8 @@ class CategoriesController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $this->validate($request, [
-            'title_ua' => 'required'
-        ]);
 
         Category::create($request->all());
         return redirect()->route('categories.index');
@@ -41,7 +40,7 @@ class CategoriesController extends Controller
         return view('admin.categories.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
         $this->validate($request, [
             'title_ua' => 'required'
