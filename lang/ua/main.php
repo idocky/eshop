@@ -2,8 +2,8 @@
 
 return [
     'test' => 'ТестУкр',
-    'currnet_locale' => 'ua',
-    'set_locale' => 'ru',
+    'current_locale' => 'UA',
+    'set_locale' => 'RU',
     'nav_main' => 'Головна',
     'nav_collection' => 'Колекції',
     'nav_clothes' => 'Одяг',

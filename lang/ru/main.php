@@ -2,10 +2,10 @@
 
 return [
     'test' => 'ТестРу',
-    'currnet_locale' => 'ru',
-    'set_locale' => 'ua',
+    'current_locale' => 'RU',
+    'set_locale' => 'UA',
     'nav_main' => 'Главная',
-    'nav_collection' => 'Колекции',
+    'nav_collection' => 'Коллекции',
     'nav_clothes' => 'Одежда',
     'collection' => 'Коллекция',
     'footer_protect' => 'Безопасные покупки',

@@ -122,12 +122,17 @@
         </div>
 
             <div class=" nav-pc">
-                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                    <li class="nav-but">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-but" id="langSelector">
                         <div class="icon-wrapper">
-                            <a class="nav-link" href="{{ route('locale', __('main.set_locale') ) }}" >
-                                @lang('main.set_locale')
+                            <a class="nav-link" >
+                                @lang('main.current_locale')
                             </a>
+                            <div class="language-dropdown">
+                                <ul style="text-align: center;">
+                                    <li><a href="{{ route('locale', __('main.set_locale') ) }}" >@lang('main.set_locale')</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
 

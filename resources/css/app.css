@@ -50,55 +50,9 @@
     margin-top: 10px;
     font-size: 16px;
 }
-.slider-container .prev,
-.slider-container .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    text-align: center;
-    line-height: 40px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-}
 
 
-.slider-container {
-    position: relative;
-}
 
-.slider-container .prev {
-    position: absolute;
-    left: -80px;
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slider-container .next {
-    position: absolute;
-    right: -80px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.next img,
-.prev img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-}
 
 
 
@@ -172,7 +126,7 @@ footer .text-right {
 .card-header {
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #f8f9fa;
+    background-color: #f2f2f2;
     border: none;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -201,7 +155,9 @@ footer .text-right {
     font-weight: bold;
 }
 
-
+.margin-r{
+    margin-right: 10px;
+}
 
 
 .list-group-item a {
@@ -214,7 +170,7 @@ footer .text-right {
 
 .list-group-item a:hover {
     background-color: #f8f9fa;
-    color: #007bff;
+    color: #1a1e21;
 }
 
 .list-group-item.active {
@@ -412,28 +368,6 @@ footer {
 
 .product-specifications tr:last-child {
     border-bottom: none;
-}
-
-/* Media query for smaller screens */
-@media only screen and (max-width: 768px) {
-    .product-page__images,
-    .product-page__info,
-    .product-page__main-image,
-    .product-page__gallery-image,
-    .size-options,
-    .size-option,
-    .product-features,
-    .product-specifications {
-        width: 100%;
-    }
-
-    .size-option {
-        width: 48%;
-    }
-}
-
-.order-quantity {
-    width: 50px;
 }
 
 
@@ -789,13 +723,27 @@ footer {
 
 
 .cart-item-quantity {
+    display: flex;
+    align-items: center;
     margin-left: auto;
 }
 
 .cart-item-quantity input {
-    width: 50px;
+    width: 60px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
     text-align: center;
 }
+
+.cart-item-quantity input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 
 .login-container {
     margin: auto;
@@ -835,18 +783,16 @@ footer {
 
 
 
-
 .profile-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Изменено на столбец для мобильных устройств */
 }
 
 .profile-sidebar {
-    height: 100%;
-    width: 200px;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
-    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; /* Заменено на нижнюю границу для мобильных устройств */
 }
 
 .profile-sidebar ul {
@@ -873,11 +819,27 @@ footer {
 }
 
 .profile-main-content {
-    flex-grow: 1;
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
-    height: 100%;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media only screen and (min-width: 768px) {
+    .profile-container {
+        flex-direction: row;
+    }
+
+    .profile-sidebar {
+        width: 200px;
+        border-bottom: none; /* Убираем нижнюю границу на больших экранах */
+        border-right: 1px solid #ddd;
+    }
+
+    .profile-main-content {
+        flex-grow: 1;
+    }
 }
 
 .cart-item-close {
@@ -895,6 +857,7 @@ footer {
 }
 
 .cart-item-close::before {
+    font-family: Arial;
     content: "\00D7";
     font-size: 16px;
     color: #000;
@@ -915,6 +878,14 @@ footer {
         padding-top: 100px;
         padding-bottom: 650px; /* высота футера */
     }
+
+    .profile-box{
+        width: 100%;
+    }
+
+    .profile-box-second{
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -924,6 +895,14 @@ footer {
     }
     .half {
         width: 50%;
+    }
+
+    .profile-box{
+        width: 20%;
+    }
+
+    .profile-box-second{
+        width: 80%;
     }
 
     body {
@@ -938,12 +917,139 @@ footer {
     border-color: black;
 }
 
-.detailed-pc {
-    display: block;
+.comment-section {
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-/* Стили для экранов меньше или равных 1040 пикселям */
-@media (max-width: 1040px) {
+.com-head {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comment-header h3 {
+    margin: 0;
+}
+
+.arrow-icon {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    transform: rotate(135deg);
+    margin-right: 10px;
+}
+
+.comment-body {
+    display: none;
+    padding: 10px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+
+td.table-td{
+    padding: 10px;
+}
+
+.card-footer{
+    background-color: #f2f2f2;
+}
+
+table {
+    table-layout: fixed;
+}
+
+.profile-link:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 991px) {
+    .detailed-pc {
+        display: block;
+    }
+
+    .detailed-mobile {
+        display: none;
+    }
+
+    .nav-pc {
+        display: block;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+
+    .size_table {
+        width: 50%;
+        border-collapse: collapse;
+    }
+
+    .slider-container {
+        position: relative;
+    }
+
+    .slider-container .prev {
+        position: absolute;
+        left: -80px;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slider-container .next {
+        position: absolute;
+        right: -80px;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .next img,
+    .prev img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+    }
+
+    .slider-container .prev,
+    .slider-container .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+
+
+}
+
+
+@media (max-width: 990px) {
+    .size_table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
     .detailed-pc {
         display: none;
     }
@@ -951,4 +1057,175 @@ footer {
     .detailed-mobile {
         display: block;
     }
+
+    .nav-pc {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: block;
+    }
+
+    .thanks-table-td {
+        display: block;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .thanks-td {
+        display: block;
+    }
+
+    .order-card {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .order-card-header {
+        background-color: #000000;
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .order-details {
+        padding: 10px;
+    }
+
+    .order-details h3 {
+        margin-top: 0;
+        color: #000000;
+    }
+
+    .order-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .order-item img {
+        width: 40px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .order-summary {
+        border-top: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+
 }
+
+.status-container {
+    display: inline-block;
+}
+
+.status-select {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.status-options {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.size_table th, .size_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.size_table th {
+    background-color: #f2f2f2;
+}
+
+.size_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.size_table tr:hover {
+    background-color: #ddd;
+}
+
+
+.block2 img {
+    max-height: 210px;
+    width: auto;
+    height: auto;
+}
+
+.town-list, #department-list {
+    position: absolute;
+    z-index: 1000; /* чтобы список был поверх других элементов */
+    max-height: 200px; /* ограничение по высоте */
+    overflow-y: auto; /* добавление прокрутки при необходимости */
+    background-color: #fff; /* цвет фона */
+    border: 1px solid #ccc; /* рамка */
+    border-radius: 4px; /* скругление углов */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* тень */
+    display: none; /* изначально скрыт */
+}
+
+.town-list .result, #department-list .department-result {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.town-list .result:hover, #department-list .department-result:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+/* Стили для модального окна */
+.np-modal {
+    display: none; /* По умолчанию модальное окно скрыто */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Полупрозрачный черный фон */
+}
+
+/* Стили для контента модального окна */
+.np-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень */
+}
+
+/* Стили для кнопки закрытия модального окна */
+.np-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.np-modal-close:hover,
+.np-modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+

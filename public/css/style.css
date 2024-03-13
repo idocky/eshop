@@ -461,11 +461,46 @@ footer {
 }
 
 .icon-wrapper {
+    position: relative; /* Добавляем позиционирование для корректного отображения */
     background-color: #f2f2f2;
     border-radius: 10px;
     padding: 5px;
     display: inline-block;
 }
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 5px;
+    z-index: 1;
+    width: 46.56px;
+    left: 0;
+}
+
+.icon-wrapper:hover .language-dropdown {
+    display: block;
+}
+
+.language-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.language-dropdown ul li {
+    margin-bottom: 5px;
+}
+
+.language-dropdown ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.language-dropdown ul li a:hover {
+    color: #50507e;
+}
+
 
 
 .dropdown {
@@ -875,7 +910,7 @@ footer {
 
     body {
         margin: 0;
-        padding-top: 100px;
+        padding-top: 81px;
         padding-bottom: 650px; /* высота футера */
     }
 
@@ -907,7 +942,7 @@ footer {
 
     body {
         margin: 0;
-        padding-top: 100px;
+        padding-top: 81px;
         padding-bottom: 320px; /* высота футера */
     }
 }
@@ -1227,3 +1262,5 @@ table {
     text-decoration: none;
     cursor: pointer;
 }
+
+
